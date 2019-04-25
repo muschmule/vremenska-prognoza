@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.0.js"
+        integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="search-container">
+            <input type="text" placeholder="Enter the city..." class="search-bar" id="searchbar">
+            <input type="button" value="SEARCH" class="ok-button" onclick="enter()">
+        </div>
+        <div class="loading">
+            <div class="middle-container">
+                <div class="left">
+                    <div class="temperature">
+                        <h1 class="temperature-degree">25<span>&#176;</span></h1>
+                    </div>
+                    <div class="city">
+                        <h1>Belgrade</h1>
+                    </div>
+                    <p class="local-time">Friday 20:07</p>
+                </div>
+                <div class="right">
+                    <img src="svg/sun.svg" alt="sun" class="weather-icon">
+                    <p class="temperature-description">Sunny and warm</p>
+                </div>
+            </div>
+            <div class="week-days"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

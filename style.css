@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+/*PRETRAGA*/
+.search-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.search-bar {
+    border: none;
+    border-bottom: 1px solid black;
+    width: 300px;
+    
+}
+
+input:focus {
+    outline: none;
+}
+
+
+
+.ok-button {
+    background-color: rgb(37, 37, 37);
+    color: white;
+    width: 60px;
+    height: 20px;
+    border: none;
+    margin: 2px;
+    font-size: 10px;
+    
+}
+
+
+/*PRIKAZ LOKACIJE I TEMPERATURE*/
+.middle-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 30px;
+}
+
+.temperature {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+.city {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 25px;
+    color: rgb(241, 96, 59);
+    
+}
+
+.local-time, .temperature-description {
+    font-family: sans-serif;
+}
+
+
+.right {
+    align-items: center;
+    text-align: center;
+}
+
+.weather-icon {
+   width: 120px;
+   height: 120px;
+   padding: 20px;
+}
+
+
+/*DANI U NEDELJI*/
+.week-days {
+    width: 80vw;
+    height: 15vw;
+    background-color: rgb(245, 245, 245);
+    
+}
+
+
+
