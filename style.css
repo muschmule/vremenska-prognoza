@@ -63,12 +63,17 @@ height: 20%;
 display: flex;
 justify-content: space-around;
 align-items: center;
+padding-bottom: 2em;
     
 }
 
 
-/*Leva strana sadrzi informacije o lokaciji, temperaturi i lokalnom vremenu*/
+/*Leva strana-sadrzi informacije o lokaciji, temperaturi i lokalnom vremenu*/
+
 .right-middle-part {
+    text-align: start;
+}
+.box{
     text-align: center;
 }
 
@@ -86,33 +91,38 @@ align-items: center;
 }
 
 
-.local-time, .temperature-description {
+.local-time, .country-name, .wind-speed {
     font-family: sans-serif;
-    padding: 1em;
+    color: rgb(58, 58, 58);
 }
 
+/*Desna strana - sadrzi ikonicu, informaciju o jacini vetra i opis vremenskih prilika*/
+
+.temperature-description {
+    font-family: sans-serif;
+    color: rgb(58, 58, 58);
+}
 
 
 
 /*Donji deo-sadrzi informacije o vremenskim prilikama za naredna 5 dana*/
 
 .lower-container{
-    display: flex;
-    justify-content: center;
-    margin: 2em;
+  
+    padding-top: 2em;
     
   
 }
 
 .week-days {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: center; 
+}
+
+.min-max {
     display: flex;
     justify-content: space-around;
-    text-align: center;
-    width: 70%;
-    padding-top: 2em;
-    
-    border-top: 1px solid rgb(112, 112, 112);
-    
 }
 
 
@@ -123,18 +133,21 @@ align-items: center;
 
 }
 
-.box {
-    padding-bottom: 2em;
+.name-day {
+    font-weight: 600;
+    color: #f1603b;
 }
+
 
 .temperatures-days {
     font-family: sans-serif;
     font-size: 1.3em;
+    padding-bottom: 0.5em;
 }
 
 
 
-/*Dizajn za manje uredjaje*/
+/*Dizajn za tablet*/
 
 @media (max-width: 800px) {
 
@@ -146,16 +159,55 @@ width: 50%;
 
 }
 
+.middle-container {
+
+height: 20%;
+display: flex;
+justify-content: space-around;
+align-items: center;
+    
+}
+
+.location-city {
+    color: #f1603b;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 2em;
+
+}
+
+.temperature {
+    font-size: 1em;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: rgb(58, 58, 58);
+}
+
 .week-days {
 
-display: inline-block;
-text-align: center;   
-padding: 3em;
+grid-template-columns: repeat(2,1fr);  
+grid-template-rows: repeat(2,1fr);
 
+}
+.box{
+    margin-top: 5%;
+}
+
+.weather-icon {
+    width: 70%;
 }
 
 
 
+}
 
+/*Dizajn za mobilni telefon*/
 
+@media (max-width: 400px) {
+
+    .week-days {
+    
+    grid-template-rows: repeat(4,1fr);
+    grid-template-columns: 1fr;
+
+    }
+    
 }

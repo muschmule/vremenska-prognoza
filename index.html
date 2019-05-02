@@ -14,37 +14,43 @@
 
 <body>
     <div class="wrapper">
+        <div class="container">
 
 
-        <div class="search-container">
-            <input type="text" class="search-bar" id="searchbar" placeholder="Enter the city...">
-            <input type="button" class="ok-button" id="dugme" value="search">
-        </div>
+            <div class="search-container">
+                <input type="text" class="search-bar" id="searchbar" onfocus="this.value=''"
+                    placeholder="Enter the city...">
+                <input type="button" class="ok-button" id="dugme" value="search">
+            </div>
 
-        <div class="middle-container">
-            <div class="left-middle-part">
-                <div class="temperature">
-                    <h1 id="temperaturedegree" class="temperature-degree"></h1>
+            <div class="middle-container">
+                <div class="left-middle-part">
+                    <div class="temperature">
+                        <h1 id="temperaturedegree" class="temperature-degree"></h1>
+                    </div>
+                    <h1 class="location-city" id="locationcity"></h1>
+                    <p class="country-name" id="countryname"></p>
+                    <p class="local-time" id="localtime"></p>
                 </div>
-                <h1 class="location-city" id="locationcity"></h1>
-                <p class="local-time" id="localtime"></p>
+
+                <div class="right-middle-part">
+                    <img id="weathericon" class="weather-icon">
+                    <p class="temperature-description" id="temperaturedescription"></p>
+                    <p class="wind-speed" id="windspeed"></p>
+                </div>
             </div>
 
-            <div class="right-middle-part">
-                <img id="weathericon" class="weather-icon">
-                <p class="temperature-description" id="temperaturedescription"></p>
+            <div class="lower-container">
+
+                <div class="week-days" id="weekdays"></div>
+
+
+
             </div>
+
+
         </div>
-
-        <div class="lower-container">
-            <div class="week-days" id="weekdays">
-
-            </div>
-        </div>
-
-
     </div>
-
     <script src="script.js"></script>
 </body>
 

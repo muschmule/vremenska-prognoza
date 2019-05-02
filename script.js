@@ -1,7 +1,6 @@
 
 
 
-
 document.getElementById("dugme").addEventListener("click", function () {
 
 
@@ -9,17 +8,19 @@ document.getElementById("dugme").addEventListener("click", function () {
     document.getElementById("weekdays").innerHTML = ""
 
 
+    //Api request
+
     const city = document.getElementById("searchbar").value;
     const requestCity = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6e8fd375562bf0578b68cdbfca4821c3`;
     const requestWeekDays = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=6e8fd375562bf0578b68cdbfca4821c3`;
-    const requestMinMax = `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=d43ef2fd90cf4392834d2bf5135f0be6`
+    const requestMinMax = `https://api.worldweatheronline.com/premium/v1/weather.ashx?key=dc3d0a4225dd4ec8be0102109192404&q=${city}&format=json&num_of_days=5`
 
 
     //Weather data for a city
+
     $.getJSON(requestCity, callbackCity);
 
     function callbackCity(data) {
-        console.log(data)
 
         const temp = kToC(data.main.temp);
         const location = data.name;
@@ -41,48 +42,43 @@ document.getElementById("dugme").addEventListener("click", function () {
 
 
 
+    //Forecast weather
 
-    //Weather data for days in a week
     $.getJSON(requestWeekDays, callbackWeek);
 
     function callbackWeek(data) {
-        console.log(data)
+
         var outputWeek = document.getElementById("weekdays");
         var inputWeek = data.list
 
         for (let i = 8; i < data.list.length; i = i + 8) {
-            //console.log(temperature[i])
-
-            //outputWeek.innerHTML += inputWeek[i].main.temp + "°C" + " ";
-            //console.log(data[i].main.weather[0].description)
 
 
             outputWeek.innerHTML += `<div class="box">
             <p class="name-day">${dayOfTheWeek(inputWeek[i].dt)}</p>
-
-            
             <img src="svg/weather/${inputWeek[i].weather[0].icon}.svg" alt=""></img>
-            <p class="temperatures-days">${kToC(inputWeek[i].main.temp_min)}°/${kToC(inputWeek[i].main.temp_max)}°</p>
             <p class="descriptionweek">${inputWeek[i].weather[0].description}</p>
-            
+            <p class="temperatures-days"></p>
             </div >`
 
         }
-
+        $.getJSON(requestMinMax, callbackMinMax);
 
     }
 
-    $.getJSON(requestMinMax, callbackMinMax);
+    //Minimalna i maksimalna temperatura
 
     function callbackMinMax(data) {
-        console.log(data)
+        var minmax = data.data.weather
+        var minMaxContainer = document.getElementsByClassName("temperatures-days")
 
-        const country = data.results[0].components.country;
-
-        document.getElementById("countryname").innerText = country;
-
+        for (i = 0; i < data.data.weather.length - 1; i++) {
+            minMaxContainer[i].innerText = `${minmax[i + 1].mintempC}°/${minmax[i + 1].maxtempC}°`
+        }
     }
 
+
+    //Time format
 
     function dayOfTheWeek(timestamp) {
         var date = new Date(timestamp * 1000);
@@ -91,7 +87,7 @@ document.getElementById("dugme").addEventListener("click", function () {
     }
 
 
-    //Converting Kelvins into Celsius
+    //Konvertovanje Kelvina u Celzijus 
 
     function kToC(temp) {
         return Math.round(temp - 273)
@@ -101,5 +97,16 @@ document.getElementById("dugme").addEventListener("click", function () {
 
 });
 
+
+
+//Izvrsavanje pretrage pritiskom na taster Enter
+
+function keyboardEnter(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("dugme").click();
+    }
+}
+document.getElementById("searchbar").addEventListener("keyup", keyboardEnter)
 
 
