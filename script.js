@@ -48,8 +48,8 @@ document.getElementById("dugme").addEventListener("click", function () {
 
     function callbackWeek(data) {
 
-        var outputWeek = document.getElementById("weekdays");
-        var inputWeek = data.list
+        const outputWeek = document.getElementById("weekdays");
+        const inputWeek = data.list
 
         for (let i = 8; i < data.list.length; i = i + 8) {
 
@@ -69,8 +69,8 @@ document.getElementById("dugme").addEventListener("click", function () {
     //Minimalna i maksimalna temperatura
 
     function callbackMinMax(data) {
-        var minmax = data.data.weather
-        var minMaxContainer = document.getElementsByClassName("temperatures-days")
+        const minmax = data.data.weather
+        const minMaxContainer = document.getElementsByClassName("temperatures-days")
 
         for (i = 0; i < data.data.weather.length - 1; i++) {
             minMaxContainer[i].innerText = `${minmax[i + 1].mintempC}°/${minmax[i + 1].maxtempC}°`
@@ -81,8 +81,8 @@ document.getElementById("dugme").addEventListener("click", function () {
     //Time format
 
     function dayOfTheWeek(timestamp) {
-        var date = new Date(timestamp * 1000);
-        var week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const date = new Date(timestamp * 1000);
+        const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         return week[date.getDay()];
     }
 
