@@ -31,4 +31,8 @@ Za ovaj projekat je koriscen JSON, kao tekstualna forma za razmenu podataka, u s
 
 Funkcije koriscene u ovom projektu se nalaze unutar dogadjaja na klik (onclick Event) i njihovim izvrsavanjem se hvataju podaci iz Objekta dobijenog sa servera i smestaju u HTML elemente. Takodje, jednom od funkcija (kToC()) se vrsi konvertovanje temperature izrazene u Kelvinima u stepene Celzijusa, kao i formatiranje prikaza dana u nedelji funkcijom dayOfTheWeek(timestamp).
 
+Prikaz sajta je responsive, prilagodjen za 3 razlicite velicine ekrana: 
 
+-desktop 
+-tablet 
+-mobilni telefon
