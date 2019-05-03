@@ -1,6 +1,4 @@
 
-
-
 document.getElementById("dugme").addEventListener("click", function () {
 
 
@@ -11,8 +9,8 @@ document.getElementById("dugme").addEventListener("click", function () {
     //Api request
 
     const city = document.getElementById("searchbar").value;
-    const requestCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6e8fd375562bf0578b68cdbfca4821c3`;
-    const requestWeekDays = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=6e8fd375562bf0578b68cdbfca4821c3`;
+    const requestCity = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6e8fd375562bf0578b68cdbfca4821c3`;
+    const requestWeekDays = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=6e8fd375562bf0578b68cdbfca4821c3`;
     const requestMinMax = `https://api.worldweatheronline.com/premium/v1/weather.ashx?key=dc3d0a4225dd4ec8be0102109192404&q=${city}&format=json&num_of_days=5`
 
 
@@ -48,8 +46,8 @@ document.getElementById("dugme").addEventListener("click", function () {
 
     function callbackWeek(data) {
 
-        const outputWeek = document.getElementById("weekdays");
-        const inputWeek = data.list
+        var outputWeek = document.getElementById("weekdays");
+        var inputWeek = data.list
 
         for (let i = 8; i < data.list.length; i = i + 8) {
 
@@ -69,8 +67,8 @@ document.getElementById("dugme").addEventListener("click", function () {
     //Minimalna i maksimalna temperatura
 
     function callbackMinMax(data) {
-        const minmax = data.data.weather
-        const minMaxContainer = document.getElementsByClassName("temperatures-days")
+        var minmax = data.data.weather
+        var minMaxContainer = document.getElementsByClassName("temperatures-days")
 
         for (i = 0; i < data.data.weather.length - 1; i++) {
             minMaxContainer[i].innerText = `${minmax[i + 1].mintempC}°/${minmax[i + 1].maxtempC}°`
@@ -81,8 +79,8 @@ document.getElementById("dugme").addEventListener("click", function () {
     //Time format
 
     function dayOfTheWeek(timestamp) {
-        const date = new Date(timestamp * 1000);
-        const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var date = new Date(timestamp * 1000);
+        var week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         return week[date.getDay()];
     }
 
