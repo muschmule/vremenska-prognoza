@@ -9,8 +9,8 @@ document.getElementById("dugme").addEventListener("click", function () {
     //Api request
 
     const city = document.getElementById("searchbar").value;
-    const requestCity = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6e8fd375562bf0578b68cdbfca4821c3`;
-    const requestWeekDays = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=6e8fd375562bf0578b68cdbfca4821c3`;
+    const requestCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6e8fd375562bf0578b68cdbfca4821c3`;
+    const requestWeekDays = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=6e8fd375562bf0578b68cdbfca4821c3`;
     const requestMinMax = `https://api.worldweatheronline.com/premium/v1/weather.ashx?key=dc3d0a4225dd4ec8be0102109192404&q=${city}&format=json&num_of_days=5`
 
 
